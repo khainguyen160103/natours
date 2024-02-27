@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
   tour: {
     type: mongoose.Types.ObjectId,
-    ref: 'tour',
+    ref: 'Tour',
     require: [true, 'Must have tour'],
   },
   user: {
     type: mongoose.Types.ObjectId,
-    ref: 'user',
+    ref: 'Users',
     require: [true, 'Must have user'],
   },
   price: {
@@ -22,12 +22,14 @@ const schema = new mongoose.Schema({
   },
 });
 
-schema.pre(/^find/, function () {
-  return this.populate('user').populate({
+schema.pre(/^find/, function (next) {
+  this.populate('user').populate({
     path: 'tour',
     select: 'name',
-  });           
+  }); 
+  
+  return next()
 });
 
-const model = mongoose.model('booking', schema);
-module.exports = model;
+const Booking = mongoose.model('Booking', schema);
+module.exports = Booking;

@@ -12,7 +12,7 @@ block content
         nav.user-view__menu
          ul.side-nav
             +nav_item('#','settings' , 'Settings' , true)
-            +nav_item('#','briefcase' , 'My bookings')
+            +nav_item('/get-my-tour','briefcase' , 'My bookings')
             +nav_item('#','star' , 'My reviews')
             +nav_item('#','credit-card' , 'Billing')
         - if(user.role === 'admin')
