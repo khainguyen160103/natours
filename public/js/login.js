@@ -3,7 +3,10 @@ export const login = async (email, password) => {
   try {
     const response = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/login',
+      // development api
+      // url: 'http://127.0.0.1:3000/api/v1/users/login',
+      // production api
+      url: '/api/v1/users/login',
       data: {
         email,
         password,
@@ -14,7 +17,7 @@ export const login = async (email, password) => {
       // alert('success', 'login sucessfully');
       window.location = '/';
     }
-    console.log(response);
+    // console.log(response);
   } catch (error) {
     console.log(error);
     showAlert('error', 'logined failed');

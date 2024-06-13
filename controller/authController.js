@@ -154,7 +154,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     const resetUrl = `${req.protocol}://${req.get(
       'host',
     )}/api/users/resetPassword/ ${resetToken}`;
-    console.log('check');
+    // console.log('check');
     await new Email(user, resetUrl).sendResetPassword();
     res.status(200).json({
       status: 'success',
@@ -182,7 +182,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   });
   // 2) If token not expired and there is user , set new password
   if (!user) {
-    console.log(user);
+    // console.log(user);
     return next(new errorApp('Your token has expired !!', 404));
   }
   // 3) update passwordChangeAt for user

@@ -42,7 +42,7 @@ exports.getMyTour = catchAsync(async (req, res) => {
   const tours = await Tour.find({
     _id: { $in: tourIds },
   });
-  console.log(tours);
+  // console.log(tours);
   return res.status(200).render('overview', {
     title: 'My tours',
     tours,
@@ -67,7 +67,7 @@ exports.getAccount = (req, res) => {
 };
 
 exports.updateAccount = async (req, res, next) => {
-  console.log(req.user);
+  // console.log(req.user);
   const userUpdate = await User.findByIdAndUpdate(
     req.user.id,
     {

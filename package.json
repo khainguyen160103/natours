@@ -13,8 +13,8 @@
     "start": " set NODE_ENV=development&&nodemon server.js",
     "start:prod": "set NODE_ENV=production&&nodemon server.js",
     "debug": "ndb server.js set NODE_ENV=production",
-    "build": "parcel build ./public/js/index.js --dist-dir ./public/js/bundled",
-    "watch:js": "parcel watch  --no-hmr ./public/js/index.js --dist-dir ./public/js/bundled "
+    "watch:js": "parcel serve ./public/js/index.js --dist-dir ./public/js/bundled",
+    "build:js": "parcel build ./public/js/index.js --dist-dir ./public/js/bundled"
   },
   "author": "",
   "license": "ISC",

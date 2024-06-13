@@ -133,9 +133,9 @@ tourSchema.virtual('review', {
 //   next();
 // });
 tourSchema.pre('save', function (next) {
-  console.log('name document saved : ', this.name);
+  // console.log('name document saved : ', this.name);
   this.slug = slugify(this.name, { lower: true });
-  console.log('slug : ', this.slug);
+  // console.log('slug : ', this.slug);
   next();
 });
 

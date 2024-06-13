@@ -7,7 +7,11 @@ export const bookTour = async (tourId) => {
   // create checkout session
   try {
     const session = await axios(
-      `http://127.0.0.1:3000/api/v1/bookings/checkout-session/${tourId}`,
+      // development api
+      // `http://127.0.0.1:3000/api/v1/bookings/checkout-session/${tourId}`,
+      // production api
+      `/api/v1/bookings/checkout-session/${tourId}`,
+
     );
 
     if (session.data.status === 'success') {

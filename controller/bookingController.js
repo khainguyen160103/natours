@@ -8,13 +8,12 @@ exports.checkoutSession = catchAsync(async (req, res) => {
   // get tour from tour id
   const tour = await Tours.findById(req.params.tourId);
   // create checkout session
-  console.log(req.user);
+  // console.log(req.user);
   const session = await stripe.checkout.sessions.create({
     // information of session
     payment_method_types: ['card'],
-    success_url: `${req.protocol}://${req.get('host')}/?tour=${
-      req.params.tourId
-    }&user=${req.user.id}&price=${tour.price}`,
+    success_url: `${req.protocol}://${req.get('host')}/?tour=${req.params.tourId
+      }&user=${req.user.id}&price=${tour.price}`,
     cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}`,
     customer_email: req.user.email,
     client_reference_id: req.params.tourId,
@@ -56,8 +55,8 @@ exports.getAllBookings = catchAsync(async (req, res, next) => {
   return res.status(200).json({ status: 'sucsess', data: tours });
 });
 
-exports.createBooking = catchAsync(async (req, res, next) => {});
+exports.createBooking = catchAsync(async (req, res, next) => { });
 
-exports.updateBooking = catchAsync(async (req, res, next) => {});
+exports.updateBooking = catchAsync(async (req, res, next) => { });
 
-exports.deleteBooking = catchAsync(async (req, res, next) => {});
+exports.deleteBooking = catchAsync(async (req, res, next) => { });
