@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 // const cors = require('cors');
 
 const AppError = require('./utils/errApp');
@@ -73,6 +74,8 @@ app.use(
     },
   }),
 );
+
+app.use(compression());
 
 // Development logging
 if (process.env.NODE_ENV === 'development') {
