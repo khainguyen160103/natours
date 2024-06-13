@@ -10,7 +10,7 @@
     "main": false
   },
   "scripts": {
-    "start": " set NODE_ENV=development&&nodemon server.js",
+    "start": " set NODE_ENV=development&&node server.js",
     "start:prod": "set NODE_ENV=production&&nodemon server.js",
     "debug": "ndb server.js set NODE_ENV=production",
     "watch:js": "parcel serve ./public/js/index.js --dist-dir ./public/js/bundled",
