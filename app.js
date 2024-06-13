@@ -137,6 +137,4 @@ app.all('*', (req, res, next) => {
 
 app.use(globalErrorHandler);
 
-
-// check comment
 module.exports = app;
